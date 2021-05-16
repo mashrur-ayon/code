@@ -23,14 +23,15 @@ library(shinythemes)
       tabPanel("Navbar 1",
                sidebarPanel(
                  tags$h3("Input:"),
-                 textInput("txt1", "Given Name:", ""),
-                 textInput("txt2", "Surname:", ""),
+                 
+                # textInput("txt1", "Given Name:", ""),
+                 textInput("txt2", "Enter your favourite hobby here: ", ""),
                  
                ), # sidebarPanel
                mainPanel(
-                            h1("Header 1"),
+                            h1("My Hobby"),
                             
-                            h4("Output 1"),
+                            h4("My favourite hobby is: "),
                             verbatimTextOutput("txtout"),
 
                ) # mainPanel
@@ -47,8 +48,14 @@ library(shinythemes)
   server <- function(input, output) {
     
     output$txtout <- renderText({
-      paste( input$txt1, input$txt2, sep = " " )
+      paste( "My favourite hobby is:", input$txt2, sep = " " )
     })
+    
+    #server <- function(input, output) {
+      
+      #output$txtout <- renderText({
+       # paste( input$txt1, input$txt2, sep = " " )
+     # })
   } # server
   
 
